@@ -1,6 +1,12 @@
-# PruebaOscarM
+# Prueba Oscar Montalvo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+Proyecto generado con Angular [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+
+Url de despliegue del proyecto: https://loving-meitner-9e4ede.netlify.app/login
+
+Url del backend: https://agile-earth-57530.herokuapp.com/
+github de backend: https://github.com/oscarm1094/api-prueba-angular
+
 
 ## Development server
 

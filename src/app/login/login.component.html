@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="position-absolute top-50 start-50 translate-middle">
+    <form class="row border py-3" #loginForm="ngForm" (ngSubmit)="onLogin()">
+      <div class="row mb-3">
+        <label for="inputUsername" class="col-sm-3 col-form-label">Username</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="inputUsername" [(ngModel)]="login.username" name="inputUsername">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+        <div class="col-sm-9">
+          <input type="password" class="form-control" id="inputPassword" [(ngModel)]="login.password" name="inputPassword">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <button type="submit" class="btn btn-primary text-center w-25" [disabled]="!loginForm.form.valid">Login</button>
+      </div>
+
+
+    </form>
+    <div *ngIf="!loged" class="d-flex justify-content-center " >
+      <p class="text-danger mt-3">Credenciales Incorrectas</p>
+    </div>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,64 @@
+<div class="container d-flex justify-content-center mt-5 ">
+    <form class="row w-50 border p-3" #userForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="col-12">
+        <label for="identificacion" class="form-label">Identificacion</label>
+        <input type="text" class="form-control" id="identificacion" [(ngModel)]="user.identificacion"
+               name="identificacion">
+      </div>
+
+      <div class="col-12">
+        <label for="name" class="form-label">Nombres</label>
+        <input type="text" class="form-control" id="name"
+               [(ngModel)]="user.nombres" name="name" required>
+      </div>
+
+      <div class="col-12">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
+      </div>
+
+      <div class="col-12">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+      </div>
+
+      <div class="col-12">
+        <label for="profile" class="form-label">Perfil</label>
+        <input type="text" class="form-control" id="profile" [(ngModel)]="user.perfil" name="profile" required>
+      </div>
+
+      <div class="col-12">
+        <label for="pass" class="form-label">Contraseña</label>
+        <input #pass="ngModel" type="password" class="form-control" id="pass"
+               [(ngModel)]="user.password" name="pass"
+               [pattern]="regPass"
+               required>
+        <div [hidden]="pass.valid || pass.pristine" class="text-danger">
+          Password no válida, debe tener al menos 1 mayuscula, 1 caracter especial, 1 numero, longitud minima 8
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label for="pass" class="form-label">Repetir Contraseña</label>
+        <input #pass2="ngModel" type="password" class="form-control" id="pass2" [(ngModel)]="passwordConfirmation"
+               name="pass2"
+
+               required>
+        <div [hidden]="!(pass2.value !== pass.value) || pass2.pristine" class="text-danger">
+          Contraseñas no coinciden
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary text-center mt-3" [disabled]="!userForm.form.valid">Guardar
+        </button>
+      </div>
+
+    </form>
+
+</div>
+
+<div *ngIf="submited" class="d-flex justify-content-center " >
+  <p>Datos enviados exitosamente</p>
+  <a routerLink="/user-list">Regresar a lista</a>
+</div>
